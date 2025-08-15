@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNCAE - Capacitación y Certificación</title>
+    <!-- Incluimos Tailwind CSS para un diseño moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuramos la fuente globalmente para una apariencia profesional */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Definimos la animación para el botón de llamada a la acción */
+        @keyframes pulse-once {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button:hover {
+            animation: pulse-once 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Sección de Cabecera y Navegación -->
+    <header class="bg-gray-800 sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logotipo/Nombre de la Empresa -->
+            <a href="#inicio" class="text-2xl font-bold text-teal-400 rounded-lg p-2 transition-colors duration-300 hover:text-white">UNCAE</a>
+            
+            <!-- Menú de Navegación -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#servicios" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 rounded-lg p-2">Servicios</a>
+                <a href="#nom-035" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 rounded-lg p-2">NOM-035</a>
+                <a href="#contacto" class="nav-link bg-teal-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105">Contacto</a>
+            </div>
+
+            <!-- Botón del menú móvil (hamburguesa) -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Menú desplegable para móviles -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <a href="#servicios" class="block py-3 px-4 text-center text-gray-300 hover:bg-gray-700 transition-colors duration-300">Servicios</a>
+            <a href="#nom-035" class="block py-3 px-4 text-center text-gray-300 hover:bg-gray-700 transition-colors duration-300">NOM-035</a>
+            <a href="#contacto" class="block py-3 px-4 text-center bg-teal-500 text-white hover:bg-teal-600 transition-colors duration-300">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Sección de Inicio (Hero) -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center text-center bg-gray-900 py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
+                UNCAE: Excelencia en <span class="text-teal-400">Capacitación y Certificación</span>
+            </h1>
+            <p class="text-lg sm:text-xl lg:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                Consultoría especializada para el crecimiento y la seguridad de tu empresa.
+            </p>
+            <a href="#contacto" class="cta-button bg-teal-500 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-transform hover:scale-105">
+                Agenda una Consultoría
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Nuestros Servicios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tarjeta de Servicio: Cursos de Certificación -->
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-600">
+                    <div class="text-teal-400 mb-4 text-5xl">🎓</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Cursos de Certificación</h3>
+                    <p class="text-gray-400">Programas de capacitación para certificaciones oficiales. Potencia tus habilidades y las de tu equipo.</p>
+                </div>
+                <!-- Tarjeta de Servicio: Evaluación de Normas -->
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-600">
+                    <div class="text-teal-400 mb-4 text-5xl">📊</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Evaluación de Normas</h3>
+                    <p class="text-gray-400">Análisis y evaluación rigurosa del cumplimiento de las normas del sector, asegurando la calidad.</p>
+                </div>
+                <!-- Tarjeta de Servicio: Estimación de Calidad -->
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-600">
+                    <div class="text-teal-400 mb-4 text-5xl">✨</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Estimación de Calidad</h3>
+                    <p class="text-gray-400">Implementación de métricas y procesos para elevar los estándares de calidad en todos los niveles.</p>
+                </div>
+                <!-- Tarjeta de Servicio: Consultoría Especializada -->
+                <div class="bg-gray-700 p-8 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-600 col-span-1 md:col-span-2 lg:col-span-3">
+                    <div class="text-teal-400 mb-4 text-5xl">💡</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Consultoría Especializada</h3>
+                    <p class="text-gray-400">Asesoría personalizada para identificar áreas de oportunidad y diseñar soluciones a la medida de tu organización.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de NOM-035 -->
+    <section id="nom-035" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Certificación y Cumplimiento de la <span class="text-teal-400">NOM-035</span></h2>
+                    <p class="text-lg text-gray-400 mb-6">
+                        La Norma Oficial Mexicana 035 es clave para el bienestar laboral y la salud psicológica de tu equipo. En UNCAE, somos expertos en guiarte a través del proceso de evaluación y certificación, garantizando que tu empresa cumpla con la normativa de la Secretaría del Trabajo y Previsión Social.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-400 mb-6">
+                        <li>Identificación de factores de riesgo psicosocial.</li>
+                        <li>Evaluación de la salud de los trabajadores.</li>
+                        <li>Diseño e implementación de políticas de prevención.</li>
+                        <li>Auditoría y certificación oficial.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">¿Por qué es importante?</h3>
+                    <p class="text-gray-400">
+                        El cumplimiento de la NOM-035 no solo evita sanciones, sino que también crea un entorno de trabajo más saludable y productivo. Demuestra el compromiso de tu empresa con el bienestar de su activo más valioso: su gente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Contáctanos</h2>
+            <p class="text-lg text-gray-400 mb-8">
+                Estamos listos para ayudarte a llevar tu empresa al siguiente nivel. Completa el formulario y nos pondremos en contacto contigo a la brevedad.
+            </p>
+            <form class="space-y-6">
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Tu Nombre" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-colors duration-300" required>
+                </div>
+                <div>
+                    <input type="email" id="email" name="email" placeholder="Tu Email" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-colors duration-300" required>
+                </div>
+                <div>
+                    <textarea id="message" name="message" rows="4" placeholder="Tu Mensaje" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-colors duration-300" required></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 bg-teal-500 text-white font-bold rounded-lg shadow-md transition-transform transform hover:scale-105">
+                    Enviar Mensaje
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección de Pie de Página -->
+    <footer class="bg-gray-900 text-center py-8">
+        <p class="text-gray-400 text-sm">&copy; 2025 UNCAE. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para el scroll suave y el menú móvil -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link, .cta-button');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Función para el scroll suave
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Cierra el menú móvil si está abierto
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                    
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Lógica para el menú móvil
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.toggle('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
