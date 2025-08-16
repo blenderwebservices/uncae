@@ -24,6 +24,31 @@
         .cta-button:hover {
             animation: pulse-once 0.5s ease-in-out;
         }
+
+        /* Estilos específicos para la sección Hero con la imagen de fondo */
+        #inicio {
+            background-image: url('https://images.pexels.com/photos/4098228/pexels-photo-4098228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Agregamos un overlay oscuro para mejorar la legibilidad del texto */
+        #inicio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Color negro con 60% de opacidad */
+        }
+
+        /* Aseguramos que el contenido del hero esté sobre el overlay */
+        #inicio > * {
+            position: relative;
+            z-index: 10;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -58,18 +83,17 @@
     </header>
 
     <!-- Sección de Inicio (Hero) -->
-    <section id="inicio" class="min-h-screen flex items-center justify-center text-center bg-gray-900 py-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
-                UNCAE: Excelencia en <span class="text-teal-400">Capacitación y Certificación</span>
-            </h1>
-            <p class="text-lg sm:text-xl lg:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                Consultoría especializada para el crecimiento y la seguridad de tu empresa.
-            </p>
-            <a href="#contacto" class="cta-button bg-teal-500 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-transform hover:scale-105">
-                Agenda una Consultoría
-            </a>
-        </div>
+    <section id="inicio" class="min-h-screen flex flex-col items-center justify-center text-center py-16 px-4 sm:px-6 lg:px-8">
+        <!-- El contenido del hero ahora está centrado sobre la imagen de fondo -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
+            UNCAE: Excelencia en <span class="text-teal-400">Capacitación y Certificación</span>
+        </h1>
+        <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-8">
+            Consultoría especializada para el crecimiento y la seguridad de tu empresa.
+        </p>
+        <a href="#contacto" class="cta-button bg-teal-500 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-transform hover:scale-105 inline-block">
+            Agenda una Consultoría
+        </a>
     </section>
 
     <!-- Sección de Servicios -->
@@ -136,9 +160,9 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
             <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Contáctanos</h2>
             <p class="text-lg text-gray-400 mb-8">
-                Estamos listos para ayudarte a llevar tu empresa al siguiente nivel. Completa el formulario y nos pondremos en contacto contigo a la brevedad.
+                Estamos listos para ayudarte a llevar tu empresa al siguiente nivel. Completa el formulario y haz clic en enviar.
             </p>
-            <form class="space-y-6">
+            <form id="contact-form" class="space-y-6">
                 <div>
                     <input type="text" id="name" name="name" placeholder="Tu Nombre" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-colors duration-300" required>
                 </div>
@@ -148,7 +172,7 @@
                 <div>
                     <textarea id="message" name="message" rows="4" placeholder="Tu Mensaje" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-colors duration-300" required></textarea>
                 </div>
-                <button type="submit" class="w-full py-4 bg-teal-500 text-white font-bold rounded-lg shadow-md transition-transform transform hover:scale-105">
+                <button type="button" onclick="sendMail()" class="w-full py-4 bg-teal-500 text-white font-bold rounded-lg shadow-md transition-transform transform hover:scale-105">
                     Enviar Mensaje
                 </button>
             </form>
@@ -160,7 +184,7 @@
         <p class="text-gray-400 text-sm">&copy; 2025 UNCAE. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JavaScript para el scroll suave y el menú móvil -->
+    <!-- JavaScript para el scroll suave y el menú móvil, y la función sendMail -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('.nav-link, .cta-button');
@@ -199,6 +223,25 @@
                 });
             }
         });
+
+        // Función para enviar el correo a través de mailto:
+        function sendMail() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Validamos que los campos no estén vacíos
+            if (!name || !email || !message) {
+                alert('Por favor, completa todos los campos del formulario.');
+                return;
+            }
+
+            const subject = encodeURIComponent(`Consulta desde el sitio web UNCAE de ${name}`);
+            const body = encodeURIComponent(`Hola, mi nombre es ${name} y mi email es ${email}.\n\nMi mensaje es:\n${message}`);
+
+            window.location.href = `mailto:blender.webservices@gmail.com?subject=${subject}&body=${body}`;
+        }
     </script>
 </body>
 </html>
+
